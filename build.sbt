@@ -7,8 +7,5 @@ lazy val root = project
     scalacOptions ++= Seq(
       "-language:implicitConversions",
       "-Yindent-colons"
-    ),
-    libraryDependencies ++= Seq(
-      "org.scala-lang" %% "scala3-staging" % scalaVersion.value
     )
   )

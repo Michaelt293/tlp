@@ -14,6 +14,16 @@ object Nats:
     case Zero => Zero
     case Succ[n] => Plus[N2, Multiply[n, N2]]
 
+  // type Equals[N1 <: Nat, N2 <: Nat] <: Boolean =
+
+  // type LessThan[N1 <: Nat, N2 <: Nat] <: Boolean = 
+
+  // type GreaterThan[N1 <: Nat, N2 <: Nat] <: Boolean = 
+
+  // type Maximum[N1 <: Nat, N2 <: Nat] <: Nat = 
+
+  // type Minimum[N1 <: Nat, N2 <: Nat] <: Nat = 
+
   type One = Succ[Zero]
   type Two = Succ[One]
   type Three = Succ[Two]
@@ -27,3 +37,8 @@ object Nats:
   summon[Multiply[Zero, One] =:= Zero]
   summon[Multiply[One, One] =:= One]
   summon[Multiply[Two, Two] =:= Four]
+  // summon[Equals[Two, Four] =:= false]
+  // summon[LessThan[Two, Four] =:= true]
+  // summon[GreaterThan[Two, Four] =:= false]
+  // summon[Maximum[Two, Four] =:= Four]
+  // summon[Minimum[Two, Four] =:= Two]

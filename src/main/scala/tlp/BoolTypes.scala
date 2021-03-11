@@ -1,30 +1,20 @@
 package tlp
 
-import scala.util.Not
-
 object BoolTypes:
 
-  sealed trait BoolType:
-    type Not <: BoolType
-    type Or[That <: BoolType] <: BoolType
+  type Not[B <: Boolean] <: Boolean = B match
+    case true => false
+    case false => true
 
-  sealed trait TrueType extends BoolType:
-    type Not = FalseType
-    type Or[That <: BoolType] = TrueType
+  // type Or[B1 <: Boolean, B2 <: Boolean] <: Boolean = 
 
-  sealed trait FalseType extends BoolType:
-    type Not = TrueType
-    type Or[That <: BoolType] = That
+  // type And[B1 <: Boolean, B2 <: Boolean] <: Boolean = 
 
-  summon[TrueType =:= TrueType]
-  summon[FalseType =:= FalseType]
-  summon[TrueType#Not =:= FalseType]
-  summon[FalseType#Not =:= TrueType]
-  summon[TrueType#Or[TrueType] =:= TrueType]
-  summon[TrueType#Or[FalseType] =:= TrueType]
-  summon[FalseType#Or[TrueType] =:= TrueType]
-  summon[FalseType#Or[FalseType] =:= FalseType]
-  summon[Not[TrueType =:= FalseType]]
-  summon[Not[FalseType =:= TrueType]]
+  // type If[C <: Boolean, A, B] = 
+
+  summon[Not[true] =:= false]
+  // summon[Or[true, false]] =:= true]
+  // summon[Not[And[false, true]] =:= true]
+  // summon[If[And[false, true], Int, Long] =:= Int]
   
 

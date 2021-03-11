@@ -4,8 +4,6 @@ import scala.compiletime._
 import scala.quoted._
 import scala.quoted.staging._
 
-given Toolbox = Toolbox.make(getClass.getClassLoader)
-
 def showType[T : Type](using QuoteContext): String = summon[Type[T]].show
 
 type If[C <: Boolean, T, F] = C match
